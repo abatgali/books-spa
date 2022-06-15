@@ -32,6 +32,10 @@ const AppRoutes = () => {
                             </RequireAuth>
                         }>
                         </Route>
+                        <Route path="books" element={<Books/>}>
+                            <Route index element={<p>Select a book to view details.</p>}/>
+                            <Route path=":bookID" element={<Book/>}/>
+                        </Route>
                         <Route path="/signin" element={<Signin/>}/>
                         <Route path="/signout" element={<Signout/>}/>
                         <Route path="/signup" element={<Signup/>}/>
