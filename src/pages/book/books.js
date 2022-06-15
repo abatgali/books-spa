@@ -53,12 +53,12 @@ const Books = () => {
                     </div>}
                 {books && <div className="professor-container">
                     <div className="professor-list">
-                        {/*{books.map((book) => (
-                            <NavLink key={book.book_id} className={({isActive}) => isActive ? "active" : ""} to="#" >
+                        {books.map((book) => (
+                            <NavLink key={book.id} className={({isActive}) => isActive ? "active" : ""} to="#" >
                                 <span>&nbsp;</span>
                                 <div>{book.title}</div>
                             </NavLink>
-                            ))}*/}
+                            ))}
                     </div>
                     <div className="professor-item">
                         Book details
