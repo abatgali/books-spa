@@ -14,7 +14,7 @@
 .professor-list {
     display: flex;
     flex-direction: column;
-    min-width: 250px;
+    min-width: 40%;
 }
 
 .professor-list a {
@@ -27,7 +27,8 @@
     border-left: 1px dotted var(--clr-grey-9);
     margin-bottom: -1px;
     margin-right: 40px;
-    height: 35px;
+    max-height: max-content;
+    padding: 1em;
 }
 
 .professor-list a div {
