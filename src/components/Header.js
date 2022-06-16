@@ -35,7 +35,6 @@ const Header = () => {
                         </Nav>
                         {isAuthed && user ? <div className="navbar-name">
                             Welcome {user.name}!</div> : ""}
-
                     </Navbar.Collapse>
                 </Container>
             </Navbar>

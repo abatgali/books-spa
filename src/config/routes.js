@@ -6,18 +6,19 @@ Description:
 */
 
 import React from 'react';
-import {BrowserRouter,Routes,Route}from "react-router-dom";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Layout from "../components/Layout";
 import Home from "../pages/home";
 import NoMatch from "../pages/nomatch";
 import Books from "../pages/book/books";
+import Book from "../pages/book/book";
 import {AuthProvider} from "../services/useAuth";
 import Signin from "../pages/auth/signin";
 import Signout from "../pages/auth/signout";
 import Signup from "../pages/auth/signup";
-import Book from "../pages/book/book";
 import Authors from "../pages/author/authors";
 import RequireAuth from "../components/RequireAuth";
+
 
 const AppRoutes = () => {
     return (

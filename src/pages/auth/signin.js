@@ -54,7 +54,7 @@ const Signin = () => {
                         <div style={{width: "100%", textAlign: "left"}}>You have successfully signed in. Click the links
                             in the navbar to explore the app.</div>
                         : <form className="form-auth" onSubmit={verifyAccount}>
-                            <h3>Please sign in to MyCollege</h3>
+                            <h3>Please sign in to MyBooks</h3>
                             <div className="form-group">
                                 <div>
                                     <label>Username</label>

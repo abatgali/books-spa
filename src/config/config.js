@@ -1,9 +1,8 @@
-/*
 Name: Anant Batgali
 Date: 6/15/22
 File: config.js
 Description: 
-*/
+
 
 //system settings
 export const settings = {

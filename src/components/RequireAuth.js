@@ -1,13 +1,13 @@
-/*
-Name: Anant Batgali
-Date: 6/15/22
+
+Name: Emma Parker
+Date: 06-14-2022
 File: RequireAuth.js
-Description: 
-*/
+Description: This script creates a component to protect pages
+ */
+
 
 import {Navigate, useLocation} from "react-router-dom";
 import {useAuth} from "../services/useAuth";
-
 import React from 'react';
 
 const RequireAuth = (children) => {
