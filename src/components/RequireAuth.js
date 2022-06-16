@@ -1,4 +1,4 @@
-
+/*
 Name: Emma Parker
 Date: 06-14-2022
 File: RequireAuth.js

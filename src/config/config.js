@@ -1,7 +1,7 @@
-Name: Anant Batgali
+/*Name: Anant Batgali
 Date: 6/15/22
 File: config.js
-Description: 
+Description: */
 
 
 //system settings
