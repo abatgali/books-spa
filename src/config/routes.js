@@ -15,6 +15,7 @@ import {AuthProvider} from "../services/useAuth";
 import Signin from "../pages/auth/signin";
 import Signout from "../pages/auth/signout";
 import Signup from "../pages/auth/signup";
+import Book from "../pages/book/book";
 
 const AppRoutes = () => {
     return (
@@ -23,7 +24,10 @@ const AppRoutes = () => {
             <Routes>
                 <Route path="/" element={<Layout/>}>
                     <Route index element={<Home/>}/>
-                    <Route path="/books" element={<Books/>}/>
+                    <Route path="/books" element={<Books/>}>
+                        <Route index element={<p>Select a book to view details.</p>}/>
+                        <Route path=":bookId" element={<Book/>} />
+                    </Route>
                     <Route path="/signin" element={<Signin/>}/>
                     <Route path="/signout" element={<Signout/>}/>
                     <Route path="/signup" element={<Signup/>}/>

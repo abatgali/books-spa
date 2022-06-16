@@ -14,7 +14,7 @@ import React from 'react';
 
 const Book = () => {
 
-    const [subheading, setSubHeading] = useOutletContext();
+    const [subHeading, setSubHeading] = useOutletContext();
     const {bookId} = useParams();
     const url = settings.baseApiUrl + "/books/" + bookId; const {
         error, isLoading, data: book
