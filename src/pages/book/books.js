@@ -34,7 +34,8 @@ const Books = () => {
                 <div className="container">Book</div>
             </div>
             <div className="sub-heading">
-                <div className="container">{subHeading}</div> </div>
+                <div className="container">{subHeading}</div>
+            </div>
             <div className="main-content container">
                 {error && <div>{error}</div>}
                 {isLoading && <div className="image-loading">
@@ -43,14 +44,14 @@ const Books = () => {
                 {books && <div className="professor-container">
                     <div className="professor-list">
                         {books.map((book) => (
-                            <NavLink key={book.id} className={({isActive}) => isActive ? "active" : ""} to="#" >
+                            <NavLink key={book.book_id} className={({isActive}) => isActive ? "active" : ""} to={`/books/${book.book_id}`} >
                                 <span>&nbsp;</span>
                                 <div>{book.title}</div>
                             </NavLink>
                             ))}
                     </div>
                     <div className="professor-item">
-                        Book details
+                        <Outlet context= {[subHeading, setSubHeading]}/>
                     </div>
                 </div>}
             </div>
