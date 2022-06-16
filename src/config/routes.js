@@ -16,6 +16,7 @@ import Signin from "../pages/auth/signin";
 import Signout from "../pages/auth/signout";
 import Signup from "../pages/auth/signup";
 import Book from "../pages/book/book";
+import RequireAuth from "../components/RequireAuth";
 
 const AppRoutes = () => {
     return (
@@ -24,7 +25,11 @@ const AppRoutes = () => {
             <Routes>
                 <Route path="/" element={<Layout/>}>
                     <Route index element={<Home/>}/>
-                    <Route path="/books" element={<Books/>}>
+                    <Route path="books" element={
+                        /*<RequireAuth>*/
+                            <Books/>
+                        /*</RequireAuth>*/
+                    }>
                         <Route index element={<p>Select a book to view details.</p>}/>
                         <Route path=":bookId" element={<Book/>} />
                     </Route>

@@ -9,12 +9,13 @@ import {settings} from "../../config/config";
 import {useState, useEffect} from 'react';
 import {NavLink, useLocation, Outlet} from "react-router-dom"; import './book.css';
 import useXmlHttp from "../../services/useXmlHttp";
-import book from "./book";
+import {useAuth} from "../../services/useAuth";
 
 import React from 'react';
 
 const Books = () => {
 
+    const {user} = useAuth();
     const {pathname} = useLocation();
     const [subHeading, setSubHeading] = useState("All Books");
     const url = settings.baseApiUrl + "/books";
@@ -22,7 +23,7 @@ const Books = () => {
         error,
         isLoading,
         data: books
-    } = useXmlHttp(url);
+    } = useXmlHttp(url, /*"GET", {Authorization: `Bearer ${user.jwt}`}*/);
 
     useEffect(() => {
         setSubHeading("All Books");

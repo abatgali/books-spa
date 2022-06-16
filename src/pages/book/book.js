@@ -9,6 +9,7 @@ import {settings} from "../../config/config";
 import useXmlHttp from '../../services/useXmlHttp';
 import {useParams, Link, useOutletContext} from "react-router-dom";
 import './book.css';
+import {useAuth} from "../../services/useAuth";
 
 
 import React from 'react';
@@ -18,11 +19,13 @@ const Book = () => {
     const [subHeading, setSubHeading] = useOutletContext();
     const {bookId} = useParams();
     const url = settings.baseApiUrl + "/books/" + bookId;
+    const {user} = useAuth();
+
     const {
         error,
         isLoading,
         data: book
-    } = useXmlHttp(url);
+    } = useXmlHttp(url/*, "GET",{Authorization: `Bearer ${user.jwt}`}*/ );
 
     return (
 
