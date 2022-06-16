@@ -16,6 +16,7 @@ import Signin from "../pages/auth/signin";
 import Signout from "../pages/auth/signout";
 import Signup from "../pages/auth/signup";
 import Book from "../pages/book/book";
+import Authors from "../pages/author/authors";
 import RequireAuth from "../components/RequireAuth";
 
 const AppRoutes = () => {
@@ -31,7 +32,9 @@ const AppRoutes = () => {
                         /*</RequireAuth>*/
                     }>
                         <Route index element={<p>Select a book to view details.</p>}/>
-                        <Route path=":bookId" element={<Book/>} />
+                        <Route path=":bookId" element={<Book/>}>
+                            <Route path="authors" element={<Authors />}/>
+                        </Route>
                     </Route>
                     <Route path="/signin" element={<Signin/>}/>
                     <Route path="/signout" element={<Signout/>}/>

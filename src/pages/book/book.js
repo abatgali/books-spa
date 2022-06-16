@@ -7,7 +7,7 @@ Description:
 
 import {settings} from "../../config/config";
 import useXmlHttp from '../../services/useXmlHttp';
-import {useParams, Link, useOutletContext} from "react-router-dom";
+import {useParams, Link, useOutletContext, Outlet} from "react-router-dom";
 import './book.css';
 import {useAuth} from "../../services/useAuth";
 
@@ -47,13 +47,12 @@ const Book = () => {
                         <div><strong>Description</strong>: {book.description}</div>
                         <div><strong>Rating</strong>: {book.rating.rating}</div>
                         <div><strong>Price</strong>: ${ book.price}</div>
-                        <div><strong>Publisher</strong>: <Link to="#">Click here to
-                            view publisher</Link></div>
+                        <Link to={`/books/${book.book_id}/authors`}> Click here to view author(s).</Link>
 
                     </div>
                 </div>
                 <div className="professor-classes">
-                    Author(s)
+                    <Outlet/>
                 </div>
             </>}
         </>
