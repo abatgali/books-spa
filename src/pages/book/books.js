@@ -10,12 +10,13 @@ import {useState, useEffect} from 'react';
 import {NavLink, useLocation, Outlet} from "react-router-dom"; import './book.css';
 import useXmlHttp from "../../services/useXmlHttp";
 import {useAuth} from "../../services/useAuth";
+import Pagination from "./pagination";
 
 import React from 'react';
 
 const Books = () => {
 
-    const {user} = useAuth();
+    //const {user} = useAuth();
     const {pathname} = useLocation();
     const [subHeading, setSubHeading] = useState("All Books");
     const url = settings.baseApiUrl + "/books";
