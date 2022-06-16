@@ -1,30 +1,34 @@
 /*
-Name: Anant Batgali
-Date: 06/11/2022
+Name:Emma Parker
+Date: 06-14-2022
 File: useXmlHttp.js
-Description:
+Description: Create a service for using XMLHttpRequest object
 */
 
-import {useState, useEffect} from "react";
+
+import {useState, useEffect} from 'react';
 
 import React from 'react';
 
-const UseXmlHttp = (url, method="GET",
+const UseXmlHttp = (url,
+                    method = "GET",
                     headers = {}) => {
     headers = {
         ...{"Content-Type": "application/json"},
         ...headers
     };
+
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
 
+    //the useEffect function and the return statement\
     //useEffect function
     useEffect(() => {
         let request = new XMLHttpRequest();
         request.open(method, url, true);
         request.timeout = 2000;   // time in milliseconds
-        for(let name in headers) { //set headers; there might be one or more headers
+        for (let name in headers) { //set headers; there might be one or more headers
             request.setRequestHeader(name, headers[name]);
         }
         request.onload = () => {   // Request finished.
