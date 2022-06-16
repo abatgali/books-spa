@@ -16,6 +16,7 @@ import {AuthProvider} from "../services/useAuth";
 import Signin from "../pages/auth/signin";
 import Signout from "../pages/auth/signout";
 import Signup from "../pages/auth/signup";
+import Authors from "../pages/author/authors";
 import RequireAuth from "../components/RequireAuth";
 
 
@@ -23,21 +24,25 @@ const AppRoutes = () => {
     return (
         <BrowserRouter>
             <AuthProvider>
-                <Routes>
-                    <Route path="/" element={<Layout/>}>
-                        <Route index element={<Home/>}/>
-                        <Route path="books" element={
-                            <RequireAuth>
-                                <Books/>
-                            </RequireAuth>
-                        }>
+            <Routes>
+                <Route path="/" element={<Layout/>}>
+                    <Route index element={<Home/>}/>
+                    <Route path="books" element={
+                        /*<RequireAuth>*/
+                            <Books/>
+                        /*</RequireAuth>*/
+                    }>
+                        <Route index element={<p>Select a book to view details.</p>}/>
+                        <Route path=":bookId" element={<Book/>}>
+                            <Route path="authors" element={<Authors />}/>
                         </Route>
-                        <Route path="/signin" element={<Signin/>}/>
-                        <Route path="/signout" element={<Signout/>}/>
-                        <Route path="/signup" element={<Signup/>}/>
-                        <Route path="*" element={<NoMatch/>}/>
                     </Route>
-                </Routes>
+                    <Route path="/signin" element={<Signin/>}/>
+                    <Route path="/signout" element={<Signout/>}/>
+                    <Route path="/signup" element={<Signup/>}/>
+                    <Route path="*" element={<NoMatch/>}/>
+                </Route>
+            </Routes>
             </AuthProvider>
         </BrowserRouter>
     );

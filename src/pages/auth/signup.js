@@ -1,6 +1,6 @@
 /*
 Name: Emma Parker
-Date: 06-14-2022
+Date: 06-12-2022
 File: signup.js
 Description: This script allows users to sign up for a new account
  */

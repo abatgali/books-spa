@@ -27,13 +27,11 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                            <NavLink to="/" className={className}>Home</NavLink>
-                            <div className="nav-separator">|</div>
-                            <NavLink to="/books" className={className}>Books</NavLink>
-                        <div className="nav-separator">|</div> {isAuthed
-                        ? <NavLink to="/signout" className={className}>Sign out</NavLink>
-                        : <NavLink to="/signin" className={className}>Sign in/Sign up</NavLink>
-                    }
+                            <Nav.Link href="/" >Home</Nav.Link>
+                            <Nav.Link href="/books" className={className}>Books</Nav.Link>
+                            <div className="nav-separator">|</div> {isAuthed
+                            ? <NavLink to="/signout" className={className}>Sign out</NavLink>
+                            : <NavLink to="/signin" className={className}>Sign in/Sign up</NavLink> }
                         </Nav>
                         {isAuthed && user ? <div className="navbar-name">
                             Welcome {user.name}!</div> : ""}
