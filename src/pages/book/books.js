@@ -7,9 +7,9 @@ Description:
 
 import {settings} from "../../config/config";
 import {useState, useEffect} from 'react';
-import {NavLink, useLocation} from "react-router-dom"; import './book.css';
+import {NavLink, useLocation, Outlet} from "react-router-dom"; import './book.css';
 import useXmlHttp from "../../services/useXmlHttp";
-
+import book from "./book";
 
 import React from 'react';
 
@@ -51,7 +51,7 @@ const Books = () => {
                             ))}
                     </div>
                     <div className="professor-item">
-                        <Outlet context= {[subHeading, setSubHeading]}/>
+                        <Outlet context={[subHeading, setSubHeading]} />
                     </div>
                 </div>}
             </div>

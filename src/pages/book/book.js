@@ -10,14 +10,18 @@ import useXmlHttp from '../../services/useXmlHttp';
 import {useParams, Link, useOutletContext} from "react-router-dom";
 import './book.css';
 
+
 import React from 'react';
 
 const Book = () => {
 
     const [subHeading, setSubHeading] = useOutletContext();
     const {bookId} = useParams();
-    const url = settings.baseApiUrl + "/books/" + bookId; const {
-        error, isLoading, data: book
+    const url = settings.baseApiUrl + "/books/" + bookId;
+    const {
+        error,
+        isLoading,
+        data: book
     } = useXmlHttp(url);
 
     return (
@@ -33,12 +37,16 @@ const Book = () => {
             {book && <>
                 {setSubHeading(book.title)}
                 <div className="professor-details">
-                    /*<div className="professor-name">{book.title}</div>*/
+                    <div className="professor-name">{book.title}</div>
                     <div className="professor-info">
+                        <div> <img src={book.image}/></div>
                         <div><strong>ISBN</strong>: {book.isbn}</div>
                         <div><strong>Description</strong>: {book.description}</div>
+                        <div><strong>Rating</strong>: {book.rating.rating}</div>
+                        <div><strong>Price</strong>: ${ book.price}</div>
                         <div><strong>Publisher</strong>: <Link to="#">Click here to
                             view publisher</Link></div>
+
                     </div>
                 </div>
                 <div className="professor-classes">
