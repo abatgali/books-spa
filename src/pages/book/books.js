@@ -16,7 +16,7 @@ import React from 'react';
 
 const Books = () => {
 
-    const {user} = useAuth();
+    //const {user} = useAuth();
     const {pathname} = useLocation();
     const [subHeading, setSubHeading] = useState("All Books");
     //const url = settings.baseApiUrl + "/books";

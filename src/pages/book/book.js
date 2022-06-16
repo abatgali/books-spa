@@ -25,7 +25,7 @@ const Book = () => {
         error,
         isLoading,
         data: book
-    } = useXmlHttp(url/*, "GET",{Authorization: `Bearer ${user.jwt}`}*/ );
+    } = useXmlHttp(url, /*"GET",{Authorization: `Bearer ${user.jwt}`} */);
 
     return (
 
