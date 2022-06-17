@@ -8,6 +8,7 @@ Description:
 import {settings} from "../../config/config";
 import useXmlHttp from '../../services/useXmlHttp';
 import {useParams} from "react-router-dom";
+import {useAuth} from "../../services/useAuth";
 import './author.css';
 
 import React from 'react';
@@ -16,11 +17,14 @@ const Authors = () => {
 
     const {bookId} = useParams();
     const url = settings.baseApiUrl + "/books/" + bookId + "/authors";
+
+    const {user} = useAuth();
+
     const {
         error,
         isLoading,
         data: authors
-    } = useXmlHttp(url);
+    } = useXmlHttp(url, "GET", {Authorization: "Bearer" + user.jwt});
 
     return (
         <>
@@ -39,7 +43,7 @@ const Authors = () => {
                     </div>
             )}
             {authors && (
-                authors.map((author) => (//cannot use "class" as a variable name. "class" is a reserved word/
+                authors.map((author) => (
                     <div key={author.author_id} className="class-row">
                         <div>{author.firstname} {author.lastname}</div>
                         <div></div>

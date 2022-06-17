@@ -29,9 +29,9 @@ const AppRoutes = () => {
                 <Route path="/" element={<Layout/>}>
                     <Route index element={<Home/>}/>
                     <Route path="books" element={
-                        /*<RequireAuth>*/
+                        <RequireAuth>
                             <Books/>
-                        /*</RequireAuth>*/
+                        </RequireAuth>
                     }>
                         <Route index element={<p>Select a book to view details.</p>}/>
                         <Route path=":bookId" element={<Book/>}>
@@ -39,9 +39,9 @@ const AppRoutes = () => {
                         </Route>
                     </Route>
                     <Route path="publishers" element={
-                        /*<RequireAuth>*/
+                        <RequireAuth>
                             <Publishers />
-                       /* </RequireAuth>*/
+                        </RequireAuth>
                     }></Route>
                     <Route path="/signin" element={<Signin/>}/>
                     <Route path="/signout" element={<Signout/>}/>

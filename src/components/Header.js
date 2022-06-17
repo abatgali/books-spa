@@ -5,12 +5,10 @@ File: Header.js
 Description: 
 */
 
-
-//import {useAuth} from "../services/useAuth";
+import {useAuth} from "../services/useAuth";
 import {NavLink} from "react-router-dom";
 import {Navbar, Nav, Container} from "react-bootstrap";
 import logo from '../pages/books-logo.png';
-import {useAuth} from "../services/useAuth";
 
 //This component creates a React-Bootstrap navbar. https://react-bootstrap.github.io/components/navbar/
 const Header = () => {

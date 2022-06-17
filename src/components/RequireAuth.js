@@ -10,7 +10,7 @@ import {Navigate, useLocation} from "react-router-dom";
 import {useAuth} from "../services/useAuth";
 import React from 'react';
 
-const RequireAuth = (children) => {
+const RequireAuth = ({children}) => {
 
     let {isAuthed} = useAuth();
     let location = useLocation();

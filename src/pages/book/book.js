@@ -25,7 +25,7 @@ const Book = () => {
         error,
         isLoading,
         data: book
-    } = useXmlHttp(url, /*"GET",{Authorization: `Bearer ${user.jwt}`} */);
+    } = useXmlHttp(url, "GET",{Authorization: `Bearer ${user.jwt}`} );
 
     return (
 
@@ -46,6 +46,8 @@ const Book = () => {
                         <div><strong>ISBN</strong>: {book.isbn}</div>
                         <div><strong>Description</strong>: {book.description}</div>
                         <div><strong>Rating</strong>: {book.rating.rating}</div>
+                        <div><strong>Genre</strong>: {book.genre.genre_name}</div>
+                        <div><strong>Publisher</strong>: {book.publisher.publisher_name}</div>
                         <div><strong>Price</strong>: ${ book.price}</div>
                         <Link to={`/books/${book.book_id}/authors`}> Click here to view author(s).</Link>
 
