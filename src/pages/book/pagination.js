@@ -54,7 +54,7 @@ const Pagination = ({books, setUrl}) => {
         setUrl(`${settings.baseApiUrl}/books?limit=${e.target.value}&offset=0&sort=${sort}`);
     }
 
-    const sortCourses = (e) => {
+    const sortBooks = (e) => {
         setSort(e.target.value);
         setUrl(`${settings.baseApiUrl}/books?limit=${limit}&offset=${offset}&sort=${e.target.value}`);
     }
@@ -64,12 +64,12 @@ const Pagination = ({books, setUrl}) => {
         <>
             {books && <div className="course-pagination-container">
                 <div className="course-pagination">
-                    Showing page {currentPage} of {totalPages}&nbsp;&nbsp;&nbsp;
+                    Showing page {currentPage} of {totalPages}
                     <Link to="#" title="First page" id={pages.first} onClick={handlePageClick}> &lt;&lt; </Link>
                     <Link to="#" title="Previous page" id={pages.prev} onClick={handlePageClick}> &lt; </Link>
                     <Link to="#" title="Next page" id={pages.next} onClick={handlePageClick}> &gt; </Link>
                     <Link to="#" title="Last page" id={pages.last} onClick={handlePageClick}> &gt;&gt; </Link>
-                    <br/> Items per page &nbsp;
+                    Items per page &nbsp;
                     <select onChange={setItemsPerPage} defaultValue="5">
                         <option value="5">5</option>
                         <option value="10">10</option>
@@ -78,7 +78,7 @@ const Pagination = ({books, setUrl}) => {
                     </select>
                 </div>
                 <div className="course-sorting"> Sort by:&nbsp;
-                    <select onChange={sortCourses}>
+                    <select onChange={sortBooks}>
                         <option value="title:asc">Title A-Z</option>
                         <option value="title:desc">Title Z-A</option>
                         <option value="price:asc">Price low to high</option>

@@ -9,7 +9,6 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    box-shadow: #0a1019;
 }
 
 .professor-list {
@@ -30,6 +29,7 @@
     margin-right: 40px;
     max-height: max-content;
     padding: 1em;
+    color: var(--clr-grey-1);
 }
 
 .professor-list a div {
@@ -38,8 +38,8 @@
 }
 .professor-list a.active,
 .professor-list a:hover {
-    background-color: darkgray;
-    color: whitesmoke;
+    background-color: var(--clr-black);
+    color: var(--clr-grey-10);
     font-weight: bold;
 }
 
@@ -102,4 +102,46 @@
 
 .professor-classes {
     margin-top: 40px;
+}
+
+/* styles for pagination and sorting */
+.course-pagination-container {
+    display: flex;
+    justify-content: right;
+    margin-bottom: 50px;
+}
+
+.course-pagination select {
+    font-size: small;
+}
+
+.course-pagination {
+    text-align: right;
+    font-size: 0.9em;
+    margin-right: 20px;
+}
+
+.course-pagination  a {
+    font-size: smaller;
+    border-radius: 3px;
+    border: 1px solid #e4f1fe;
+    min-width: 20px;
+    padding: 1px 6px;
+    display: inline-block;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.course-pagination a:hover {
+    background-color: #f8f9fa;
+}
+
+.course-sorting {
+    text-align: right;
+    font-size: 0.9em;
+}
+
+.course-pagination select,
+.course-sorting select {
+    font-size: smaller;
 }
