@@ -64,12 +64,12 @@ const Pagination = ({books, setUrl}) => {
         <>
             {books && <div className="course-pagination-container">
                 <div className="course-pagination">
-                    Showing page {currentPage} of {totalPages}&nbsp;
+                    Showing page {currentPage} of {totalPages}&nbsp;&nbsp;&nbsp;
                     <Link to="#" title="First page" id={pages.first} onClick={handlePageClick}> &lt;&lt; </Link>
                     <Link to="#" title="Previous page" id={pages.prev} onClick={handlePageClick}> &lt; </Link>
                     <Link to="#" title="Next page" id={pages.next} onClick={handlePageClick}> &gt; </Link>
                     <Link to="#" title="Last page" id={pages.last} onClick={handlePageClick}> &gt;&gt; </Link>
-                    Items per page &nbsp;
+                    <br/> Items per page &nbsp;
                     <select onChange={setItemsPerPage} defaultValue="5">
                         <option value="5">5</option>
                         <option value="10">10</option>
@@ -79,10 +79,12 @@ const Pagination = ({books, setUrl}) => {
                 </div>
                 <div className="course-sorting"> Sort by:&nbsp;
                     <select onChange={sortCourses}>
-                        <option value="book_id:asc">Number A-Z</option>
-                        <option value="book_id:desc">Number Z-A</option>
                         <option value="title:asc">Title A-Z</option>
                         <option value="title:desc">Title Z-A</option>
+                        <option value="price:asc">Price low to high</option>
+                        <option value="price:desc">Price high to low</option>
+                        <option value="book_id:asc">Number A-Z</option>
+                        <option value="book_id:desc">Number Z-A</option>
                     </select>
                 </div>
             </div>}
