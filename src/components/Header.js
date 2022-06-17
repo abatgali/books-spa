@@ -29,9 +29,10 @@ const Header = () => {
                         <Nav className="me-auto">
                             <Nav.Link href="/" >Home</Nav.Link>
                             <Nav.Link href="/books" className={className}>Books</Nav.Link>
-                            <div className="nav-separator">|</div> {isAuthed
+                            <NavLink to="/publishers" className={className}>Publishers</NavLink>
+                            {isAuthed
                             ? <NavLink to="/signout" className={className}>Sign out</NavLink>
-                            : <NavLink to="/signin" className={className}>Sign in/Sign up</NavLink> }
+                            : <NavLink to="/signin" className={className}>Sign in</NavLink> }
                         </Nav>
                         {isAuthed && user ? <div className="navbar-name">
                             Welcome {user.name}!</div> : ""}
