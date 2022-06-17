@@ -54,7 +54,7 @@ const UseFetch = () => {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                //'Authorization': "Bearer " + user.jwt
+                'Authorization': "Bearer " + user.jwt
             },
             signal: signal
         });
