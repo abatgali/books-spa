@@ -13,7 +13,8 @@ import {useNavigate} from "react-router-dom";
 import {useAuth} from "../../services/useAuth";
 import EditPublisher from "./editPublisher";
 import CreatePublisher from "./createPublisher";
-import DeletePublisher from "./deletePublisher"
+import DeletePublisher from "./deletePublisher";
+import Table from 'react-bootstrap/Table';
 
 import React from 'react';
 
@@ -26,7 +27,7 @@ const Publishers = () => {
     const [reload, setReload] = useState(false);
     const [showCreateModal, setShowCreateModal] = useState(false);
     const [showDeleteModal, setShowDeleteModal] = useState(false);
-
+    const [showEditModal, setShowEditModal] = useState(false);
     const {user} = useAuth();
     const disabled = (user.role !== 1);
 
@@ -43,7 +44,7 @@ const Publishers = () => {
     const handleDelete = (e) => {
         if(disabled) return;
         let publisher = {};
-        ["publisher_id", "publisher_name", "address", "websiter"].forEach(function (key) {
+        ["publisher_id", "publisher_name", "address", "website"].forEach(function (key) {
             publisher[key] =
                 document.getElementById(`publisher-${key}-` + e.target.id).innerText;
         })
@@ -83,33 +84,37 @@ const Publishers = () => {
                         <img src={require(`../loading.gif`)} alt="Loading ......"/>
                     </div>}
                 {publishers &&
-                    <div className="publisher-container">
-                        <div className="publisher-row publisher-row-header">
-                            <div className="publisher-info">
-                                <div className="publisher_id">Id</div>
-                                <div className="publisher_name">Name</div>
-                                <div className="address">Address</div>
-                                <div className="website">Website</div>
-                            </div>
-                            <div className="publisher-buttons" style={{textAlign: "center"}}>Actions</div>
-                        </div>
+                    <Table striped bordered hover variant="dark">
+                        <thead>
+                        <tr>
+                            <th className="publisher_id">Id</th>
+                            <th className="publisher_name">Name</th>
+                            <th className="address">Address</th>
+                            <th className="website">Website</th>
+                            <th className="actions">Actions</th>
+                        </tr>
+                        </thead>
                         {publishers.data.map((publisher) => (
-                            <div key={publisher.publisher_id} className="publisher-row">
-                                <div className="publisher-info">
-                                    <div id={"publisher_id-" + publisher.publisher_id} className="publisher_id">{publisher.publisher_id}</div>
-                                    <div id={"publisher_name-" + publisher.publisher_id} className="publisher_name">{publisher.publisher_name}</div>
-                                    <div id={"publisher_address-" + publisher.publisher_id} className="publisher_address">{publisher.address}</div>
-                                    <div id={"publisher_website-" + publisher.publisher_id} className="publisher_website"><a href={"https://"+publisher.website}>{publisher.website}</a></div>
-                                </div>
-                                <div className="publisher-buttons">
-                                    <button className="button-light" id={publisher.publisher_id}
-                                            disabled={disabled}
-                                            onClick={handleEdit}>Edit</button>
-                                    <button className="button-light" id={publisher.publisher_id } disabled={disabled}
-                                            onClick={handleDelete}>Delete</button>
-                                </div>
-                            </div>
+                            <tbody className="test">
+
+                                <tr key={publisher.publisher_id}>
+
+                                    <td id={"publisher_id-" + publisher.publisher_id} className="publisher_id">{publisher.publisher_id}</td>
+                                    <td id={"publisher_name-" + publisher.publisher_id} className="publisher_name"><strong>{publisher.publisher_name}</strong></td>
+                                    <td id={"publisher_address-" + publisher.publisher_id} className="address">{publisher.address}</td>
+                                    <td id={"publisher_website-" + publisher.publisher_id} className="website"><a href={"https://"+publisher.website}>{publisher.website}</a></td>
+                                    <td className="actions">
+                                        <button className="button-light" id={publisher.publisher_id}
+                                                disabled={disabled}
+                                                onClick={handleEdit}>Edit</button>
+                                        <button className="button-light" id={publisher.publisher_id } disabled={disabled}
+                                                onClick={handleDelete}>Delete</button>
+                                    </td>
+                                </tr>
+                            </tbody>
                         ))}
+                    </Table>}
+
                         {showEditModal &&
                             <EditPublisher
                             showModal={showEditModal}
@@ -134,7 +139,6 @@ const Publishers = () => {
                             <button className="button-create" disabled={disabled} onClick={handleCreate}>
                                 Create Publisher </button>
                         </div>
-                    </div>}
             </div>
         </>
     );

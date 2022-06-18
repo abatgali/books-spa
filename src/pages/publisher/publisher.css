@@ -1,7 +1,7 @@
 /*
 *  styles for student-related elements
  */
-.student-container{
+.publisher-container{
     margin: 10px auto;
     width: 100%;
     display: flex;
@@ -9,10 +9,10 @@
     justify-content: flex-start;
 }
 
-.student-container > div:nth-child(odd) {
+.publisher-container > div:nth-child(odd) {
     background-color: #f8f9fa;
 }
-.student-row {
+.publisher-row {
     width: 100%;
     min-height: 35px;
     padding-left: 5px;
@@ -22,7 +22,7 @@
     border-bottom: 1px solid #e4f1fe;
 }
 
-.student-row-header {
+.publisher-row-header {
     font-weight: bold;
     font-size: 14px;
     color: #22252c;
@@ -30,38 +30,38 @@
     border-top: 1px solid #e4f1fe;
 }
 
-.student-row .student-info {
+.publisher-row-row .publisher-info {
     display: flex;
     flex-direction: row;
     width: 100%;
 }
 
-.student-info div {
+.publisher-info div {
     margin-right: 2px;
 }
 
-.student-id {
+.publisher_id {
     width: 10%;
 }
 
-.student-name {
+.publisher_name {
     width: 20%;
 }
 
-.student-email {
-    width: 20%;
-}
-
-.student-major {
+.address {
     width: 40%;
 }
 
-.student-gpa {
+.website {
+    width: 20%;
+}
+
+.actions {
     width: 10%;
 }
 
 /* styles for the add student row */
-.student-row input {
+.publisher-row input {
     border: 1px solid #cccccc;
     width: 100%;
     padding: 0px 5px;
@@ -70,7 +70,7 @@
 
 /* styles for edit and delete buttons */
 
-.student-row .student-buttons {
+.publisher-row .publisher-buttons {
     min-width: 190px;
     text-align: right;
 }
