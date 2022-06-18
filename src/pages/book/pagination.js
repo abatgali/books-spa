@@ -15,7 +15,7 @@ const Pagination = ({books, setUrl}) => {
 
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
-    const [limit, setLimit] = useState(10);
+    const [limit, setLimit] = useState(5);
     const [offset, setOffset] = useState(0);
     const [sort, setSort] = useState("book_id:asc");
     const [pages, setPages] = useState({});  //first, last, previous, and next pages
