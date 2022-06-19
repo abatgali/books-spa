@@ -19,11 +19,13 @@ const CreatePublisher =
         const [showButton, setShowButton] = useState(true);
 
         const {register, handleSubmit, formState: {errors}} = useForm({
-            defaultValues: {publisher_id: "", publisher_name: "", address: "", website: ""},
+            defaultValues: {
+                publisher_name: "",
+                address: "",
+                website: ""},
             shouldUseNativeValidation: false
         });
         const createFormOptions = {
-            publisher_id: {required: "ID is required"},
             publisher_name: {required: "Name is required"},
             address: {required: "Address is required"},
             website: {required: "Website is required"}
@@ -65,15 +67,10 @@ const CreatePublisher =
                         {(!submitted || error != null) &&
                             <form className="form-publisher" id="form-publisher-edit" onSubmit={handleSubmit(handleCreate)}>
                                 <ul className="form-publisher-errors">
-                                    {errors?.publisher_id && <li>{errors.publisher_id.message}</li>}
                                     {errors?.publisher_name && <li>{errors.publisher_name.message}</li>}
                                     {errors?.address && <li>{errors.address.message}</li>}
                                     {errors?.website && <li>{errors.website.message}</li>}
                                 </ul>
-                                <div className="form-group">
-                                    <label>Publisher ID</label>
-                                    <input name="publisher_id" {...register('publisher_id', createFormOptions.publisher_id)}/>
-                                </div>
                                 <div className="form-group">
                                     <label>Name</label>
                                     <input type="text" name="publisher_name" {...register('publisher_name', createFormOptions.name)}/>

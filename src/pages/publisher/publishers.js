@@ -83,6 +83,10 @@ const Publishers = () => {
                         Please wait while data is being loaded
                         <img src={require(`../loading.gif`)} alt="Loading ......"/>
                     </div>}
+                <div style={{marginLeft: "auto", marginBottom: "1em"}}>
+                    <button className="button-create" disabled={disabled} onClick={handleCreate}>
+                        Create Publisher </button>
+                </div>
                 {publishers &&
                     <Table striped bordered hover variant="dark">
                         <thead>
@@ -135,10 +139,6 @@ const Publishers = () => {
                                 setShowModal={setShowCreateModal}
                                 reload={reload} setReload={setReload}
                                 setSubHeading={setSubHeading}/>}
-                        <div>
-                            <button className="button-create" disabled={disabled} onClick={handleCreate}>
-                                Create Publisher </button>
-                        </div>
             </div>
         </>
     );
