@@ -71,16 +71,16 @@ const CreatePublisher =
                                     {errors?.address && <li>{errors.address.message}</li>}
                                     {errors?.website && <li>{errors.website.message}</li>}
                                 </ul>
-                                <div className="form-group">
-                                    <label>Name</label>
+                               <div className="form-group" style={{marginBottom: "0.5em"}}>
+                                    <label>Name: &nbsp; &nbsp; &nbsp;</label>
                                     <input type="text" name="publisher_name" {...register('publisher_name', createFormOptions.name)}/>
                                 </div>
-                                <div className="form-group">
-                                    <label>Address</label>
+                                <div className="form-group" style={{marginBottom: "0.5em"}}>
+                                    <label>Address: &nbsp;</label>
                                     <input name="address" {...register('address', createFormOptions.address)}/>
                                 </div>
-                                <div className="form-group">
-                                    <label>Website</label>
+                                <div className="form-group" style={{marginBottom: "0.5em"}}>
+                                    <label>Website: &nbsp;</label>
                                     <input name="website" {...register('website', createFormOptions.website)}/>
                                 </div>
                             </form>
