@@ -89,13 +89,15 @@ button.button-create {
     border-radius: 0.25rem;
 }
 
+/*
 button.button-light:hover,
 button.button-create:hover
 {
     color: #212529;
-    background-color: #e2e6ea;
+    background-color: #f8b159;
     border-color: #dae0e5;
 }
+*/
 
 button:disabled,
 button[disabled],

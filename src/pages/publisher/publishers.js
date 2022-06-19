@@ -15,6 +15,7 @@ import EditPublisher from "./editPublisher";
 import CreatePublisher from "./createPublisher";
 import DeletePublisher from "./deletePublisher";
 import Table from 'react-bootstrap/Table';
+import Button from 'react-bootstrap/Button'
 
 import React from 'react';
 
@@ -84,11 +85,11 @@ const Publishers = () => {
                         <img src={require(`../loading.gif`)} alt="Loading ......"/>
                     </div>}
                 <div style={{marginLeft: "auto", marginBottom: "1em"}}>
-                    <button className="button-create" disabled={disabled} onClick={handleCreate}>
-                        Create Publisher </button>
+                    <Button variant="outline-dark" disabled={disabled} onClick={handleCreate}>
+                        Create Publisher </Button>
                 </div>
                 {publishers &&
-                    <Table striped bordered hover variant="dark">
+                    <Table striped bordered hover>
                         <thead>
                         <tr>
                             <th className="publisher_id">Id</th>
@@ -108,11 +109,13 @@ const Publishers = () => {
                                     <td id={"publisher_address-" + publisher.publisher_id} className="address">{publisher.address}</td>
                                     <td id={"publisher_website-" + publisher.publisher_id} className="website"><a href={"https://"+publisher.website}>{publisher.website}</a></td>
                                     <td className="actions">
-                                        <button className="button-light" id={publisher.publisher_id}
+                                        <Button variant="outline-primary"className="button-light" id={publisher.publisher_id}
                                                 disabled={disabled}
-                                                onClick={handleEdit}>Edit</button>
-                                        <button className="button-light" id={publisher.publisher_id } disabled={disabled}
-                                                onClick={handleDelete}>Delete</button>
+                                                onClick={handleEdit}
+                                                style={{marginBottom: "0.5em"}}
+                                        >Edit</Button>
+                                        <Button variant="outline-danger" className="button-light" id={publisher.publisher_id } disabled={disabled}
+                                                onClick={handleDelete}>Delete</Button>
                                     </td>
                                 </tr>
                             </tbody>
