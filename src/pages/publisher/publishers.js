@@ -14,14 +14,13 @@ import {useAuth} from "../../services/useAuth";
 import EditPublisher from "./editPublisher";
 import CreatePublisher from "./createPublisher";
 import DeletePublisher from "./deletePublisher";
-import Table from 'react-bootstrap/Table';
-import Button from 'react-bootstrap/Button'
+import {Table, Button, Form} from 'react-bootstrap';
 
 import React from 'react';
 
 const Publishers = () => {
 
-    const {error, isLoading, data: publishers, getAll} = UseFetch();
+    const {error, isLoading, data: publishers, getAll, search} = UseFetch();
     const [subHeading, setSubHeading] = useState("All Publishers");
     const navigate = useNavigate();
     const [activePublisher, setActivePublisher] = useState(""); //the publisher being edited const [showEditModal, setShowEditModal] = useState(false);
@@ -69,6 +68,25 @@ const Publishers = () => {
         setSubHeading("Edit Publisher");
     }
 
+    const handleSearch = (e) => {
+        e.preventDefault();
+        const term = document.getElementById("student-search-term").value;
+        if(term === '')
+            setSubHeading("All Publishers");
+        else if(isNaN(term))
+            setSubHeading("Publishers containing '" + term + "'");
+        else if(!isNaN(term))
+            setSubHeading("Publishers whose GPA is >= " + term);
+        search(term);
+    }
+
+    const clearSearchBox = (e) => {
+        e.preventDefault();
+        document.getElementById("student-search-term").value = "";
+        search("");
+    }
+
+
     return (
         <>
             <div className="main-heading">
@@ -84,6 +102,28 @@ const Publishers = () => {
                         Please wait while data is being loaded
                         <img src={require(`../loading.gif`)} alt="Loading ......"/>
                     </div>}
+                <form style={{
+                    textAlign: "right",
+                    marginBottom: "3px",
+                    justifyContent:"left",
+                    maxWidth:"40%"
+                    }}
+                      onSubmit={handleSearch}>
+                    {/*<input id="student-search-term" placeholder="Enter search terms"/>*/}
+                    <Form.Control type="text"
+                                  id="student-search-term"
+                                  placeholder="Search publishers"
+                                style={{
+                                 marginBottom:"1em"
+                                }}
+                    />
+                    <Button type="submit" variant="outline-info"
+                            style={{marginLeft: "5px"}}>
+                        Search
+                    </Button>
+                    <Button variant="outline-secondary" style={{marginLeft: "5px"}}
+                            onClick={clearSearchBox}>Clear</Button>
+                </form>
                 <div style={{marginLeft: "auto", marginBottom: "1em"}}>
                     <Button variant="outline-dark" disabled={disabled} onClick={handleCreate}>
                         Create Publisher </Button>
@@ -109,7 +149,7 @@ const Publishers = () => {
                                     <td id={"publisher_address-" + publisher.publisher_id} className="address">{publisher.address}</td>
                                     <td id={"publisher_website-" + publisher.publisher_id} className="website"><a href={"https://"+publisher.website}>{publisher.website}</a></td>
                                     <td className="actions">
-                                        <Button variant="outline-primary"className="button-light" id={publisher.publisher_id}
+                                        <Button variant="outline-primary" className="button-light" id={publisher.publisher_id}
                                                 disabled={disabled}
                                                 onClick={handleEdit}
                                                 style={{marginBottom: "0.5em"}}
