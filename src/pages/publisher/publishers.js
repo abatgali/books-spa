@@ -83,6 +83,7 @@ const Publishers = () => {
     const clearSearchBox = (e) => {
         e.preventDefault();
         document.getElementById("student-search-term").value = "";
+        setSubHeading("All Publishers");
         search("");
     }
 
@@ -109,7 +110,6 @@ const Publishers = () => {
                     maxWidth:"40%"
                     }}
                       onSubmit={handleSearch}>
-                    {/*<input id="student-search-term" placeholder="Enter search terms"/>*/}
                     <Form.Control type="text"
                                   id="student-search-term"
                                   placeholder="Search publishers"
