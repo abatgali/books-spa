@@ -20,6 +20,7 @@ import Authors from "../pages/author/authors";
 import RequireAuth from "../components/RequireAuth";
 import Publishers from "../pages/publisher/publishers";
 import EditPublisher from "../pages/publisher/editPublisher";
+import Genres from "../pages/genre/genres";
 
 
 const AppRoutes = () => {
@@ -46,6 +47,9 @@ const AppRoutes = () => {
                     }>
                         <Route path=":publisher_id" element={<EditPublisher />} />
                     </Route>
+                    <Route path="genres" element={ <RequireAuth>
+                        <Genres /> </RequireAuth>
+                    }></Route>
                     <Route path="/signin" element={<Signin/>}/>
                     <Route path="/signout" element={<Signout/>}/>
                     <Route path="/signup" element={<Signup/>}/>

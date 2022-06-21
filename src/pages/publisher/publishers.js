@@ -23,11 +23,12 @@ const Publishers = () => {
     const {error, isLoading, data: publishers, getAll, search} = UseFetch();
     const [subHeading, setSubHeading] = useState("All Publishers");
     const navigate = useNavigate();
-    const [activePublisher, setActivePublisher] = useState(""); //the publisher being edited const [showEditModal, setShowEditModal] = useState(false);
+    const [activePublisher, setActivePublisher] = useState(""); //the publisher being edited
+    const [showEditModal, setShowEditModal] = useState(false);
     const [reload, setReload] = useState(false);
     const [showCreateModal, setShowCreateModal] = useState(false);
     const [showDeleteModal, setShowDeleteModal] = useState(false);
-    const [showEditModal, setShowEditModal] = useState(false);
+
     const {user} = useAuth();
     const disabled = (user.role !== 1);
 
@@ -35,38 +36,7 @@ const Publishers = () => {
         getAll();
     }, [reload]);
 
-    const handleCreate = (e) => {
-        if(disabled) return;
-        setShowCreateModal(true);
-        setSubHeading("Create Publisher");
-    }
 
-    const handleDelete = (e) => {
-        if(disabled) return;
-        let publisher = {};
-        ["publisher_id", "publisher_name", "address", "website"].forEach(function (key) {
-            publisher[key] =
-                document.getElementById(`publisher-${key}-` + e.target.id).innerText;
-        })
-        setActivePublisher(publisher);
-        setSubHeading("Delete Publisher");
-        navigate("/publisher/" + e.target.id);
-        setShowDeleteModal(true);
-    }
-
-    const handleEdit = (e) => {
-        if(disabled) return;
-        //retrieve publisher data and pass it to the update page
-        let publisher = {};
-        ["publisher_id", "publisher_name", "address", "website"].forEach(function(key) {
-            publisher[key] =
-                document.getElementById(`publisher-${key}-` + e.target.id).innerText;
-        })
-        setActivePublisher(publisher);
-        navigate("/publishers/" + e.target.id);
-        setShowEditModal(true);
-        setSubHeading("Edit Publisher");
-    }
 
     const handleSearch = (e) => {
         e.preventDefault();
@@ -87,6 +57,38 @@ const Publishers = () => {
         search("");
     }
 
+    const handleEdit = (e) => {
+        if(disabled) return;
+        //retrieve publisher data and pass it to the update page
+        let publisher = {};
+        ["publisher_id", "publisher_name", "address", "website"].forEach(function(key) {
+            publisher[key] =
+                document.getElementById(`publisher-${key}-` + e.target.id).innerText;
+        })
+        setActivePublisher(publisher);
+        navigate("/publishers/" + e.target.id);
+        setShowEditModal(true);
+        setSubHeading("Edit Publisher");
+    }
+
+    const handleCreate = (e) => {
+        if(disabled) return;
+        setShowCreateModal(true);
+        setSubHeading("Create Publisher");
+    }
+
+    const handleDelete = (e) => {
+        if(disabled) return;
+        let publisher = {};
+        ["publisher_id", "publisher_name", "address", "website"].forEach(function (key) {
+            publisher[key] =
+                document.getElementById(`publisher-${key}-` + e.target.id).innerText;
+        })
+        setActivePublisher(publisher);
+        setSubHeading("Delete Publisher");
+        navigate("/publishers/" + e.target.id);
+        setShowDeleteModal(true);
+    }
 
     return (
         <>
@@ -132,29 +134,29 @@ const Publishers = () => {
                     <Table striped bordered hover>
                         <thead>
                         <tr>
-                            <th className="publisher_id">Id</th>
-                            <th className="publisher_name">Name</th>
-                            <th className="address">Address</th>
-                            <th className="website">Website</th>
-                            <th className="actions">Actions</th>
+                            <th className="publisher-publisher_id">Id</th>
+                            <th className="publisher-publisher_name">Name</th>
+                            <th className="publisher-address">Address</th>
+                            <th className="publisher-website">Website</th>
+                            <th className="publisher-actions">Actions</th>
                         </tr>
                         </thead>
                         {publishers.data.map((publisher) => (
                             <tbody className="test">
 
-                                <tr key={publisher.publisher_id}>
+                                <tr key={publisher.id}>
 
-                                    <td id={"publisher_id-" + publisher.publisher_id} className="publisher_id">{publisher.publisher_id}</td>
-                                    <td id={"publisher_name-" + publisher.publisher_id} className="publisher_name"><strong>{publisher.publisher_name}</strong></td>
-                                    <td id={"publisher_address-" + publisher.publisher_id} className="address">{publisher.address}</td>
-                                    <td id={"publisher_website-" + publisher.publisher_id} className="website"><a href={"https://"+publisher.website}>{publisher.website}</a></td>
+                                    <td id={"publisher_id-" + publisher.id} className="publisher_id">{publisher.publisher_id}</td>
+                                    <td id={"publisher_name-" + publisher.id} className="publisher_name"><strong>{publisher.publisher_name}</strong></td>
+                                    <td id={"publisher_address-" + publisher.id} className="address">{publisher.address}</td>
+                                    <td id={"publisher_website-" + publisher.id} className="website"><a href={"https://"+publisher.website}>{publisher.website}</a></td>
                                     <td className="actions">
-                                        <Button variant="outline-primary" className="button-light" id={publisher.publisher_id}
+                                        <Button variant="outline-primary" className="button-light" id={publisher.id}
                                                 disabled={disabled}
                                                 onClick={handleEdit}
                                                 style={{marginBottom: "0.5em"}}
                                         >Edit</Button>
-                                        <Button variant="outline-danger" className="button-light" id={publisher.publisher_id } disabled={disabled}
+                                        <Button variant="outline-danger" className="button-light" id={publisher.id } disabled={disabled}
                                                 onClick={handleDelete}>Delete</Button>
                                     </td>
                                 </tr>

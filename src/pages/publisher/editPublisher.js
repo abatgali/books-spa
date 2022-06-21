@@ -20,6 +20,8 @@ const EditPublisher =
         const navigate = useNavigate();
         const [submitted, setSubmitted] = useState(false);
         const [showButton, setShowButton] = useState(true);
+
+
         const {register, handleSubmit, formState: {errors}} = useForm({
             defaultValues: data,
             shouldUseNativeValidation: false
@@ -76,7 +78,7 @@ const EditPublisher =
                                     {errors?.publisher_id && <li>{errors.publisher_id.message}</li>}
                                     {errors?.publisher_name && <li>{errors.publisher_name.message}</li>}
                                     {errors?.address && <li>{errors.address.message}</li>}
-                                    {errors?.website && <li>{errors.websire.message}</li>}
+                                    {errors?.website && <li>{errors.website.message}</li>}
                                 </ul>
                                 <div className="form-group">
                                     <label>Publisher ID</label>
@@ -91,7 +93,7 @@ const EditPublisher =
                                     <input name="address" {...register('address', editFormOptions.address)}/>
                                 </div>
                                 <div className="form-group">
-                                    <label>Websire</label>
+                                    <label>Website</label>
                                     <input name="website" {...register('website', editFormOptions.website)}/>
                                 </div>
                             </form>}

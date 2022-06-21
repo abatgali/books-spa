@@ -28,6 +28,8 @@ const Header = () => {
                             <Nav.Link href="/" >Home</Nav.Link>
                             <Nav.Link href="/books" className={className}>Books</Nav.Link>
                             <NavLink to="/publishers" className={className}>Publishers</NavLink>
+                            <div className="nav-separator">|</div>
+                            <NavLink to="/genres" className={className}>Genre</NavLink>
                             {isAuthed
                             ? <NavLink to="/signout" className={className}>Sign out</NavLink>
                             : <NavLink to="/signin" className={className}>Sign in</NavLink> }
