@@ -1,0 +1,116 @@
+/* Styles for the list of courses */
+.course-container{
+    margin: 10px auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.course-container > div:nth-child(odd) {
+    background-color: #f8f9fa;
+}
+.course-row {
+    width: 100%;
+    min-height: 35px;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 1px solid #e4f1fe;
+}
+
+.course-row-header {
+    font-weight: bold;
+    font-size: 14px;
+    color: #22252c;
+    background-color: #cccccc !important;
+    border-top: 2px solid #e4f1fe;
+    border-bottom: 1px solid #e4f1fe;
+}
+
+.course-row div:nth-child(1) {
+    width: 15%
+}
+
+.course-row div:nth-child(2) {
+    width: 45%
+}
+
+.course-row div:nth-child(3) {
+    width: 15%
+}
+
+.course-row div:nth-child(4) {
+    width: 25%
+}
+
+
+/* styles for details of a specific course */
+
+.course-detail-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.course-detail-row {
+    border-top: #b7d2ff solid 0px;
+    border-bottom: #b7d2ff solid 1px;
+    margin-bottom: 0px;
+    display: flex;
+    flex-direction: row;
+}
+
+.course-detail-row div {
+    padding: 3px 10px;
+}
+
+.course-detail-row div:nth-child(1) {
+    min-width: 120px;
+    text-align: right;
+    font-weight: bold;
+    border-right: #b7d2ff solid 1px;
+}
+
+
+/* styles for pagination and sorting */
+.course-pagination-container {
+    display: flex;
+    justify-content: right;
+    margin-bottom: 50px;
+}
+
+.course-pagination select {
+    font-size: small;
+}
+
+.course-pagination {
+    text-align: right;
+    font-size: 0.9em;
+    margin-right: 20px;
+}
+
+.course-pagination  a {
+    font-size: smaller;
+    border-radius: 3px;
+    border: 1px solid #e4f1fe;
+    min-width: 20px;
+    padding: 1px 6px;
+    display: inline-block;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.course-pagination a:hover {
+    background-color: #f8f9fa;
+}
+
+.course-sorting {
+    text-align: right;
+    font-size: 0.9em;
+}
+
+.course-pagination select,
+.course-sorting select {
+    font-size: smaller;
+}
